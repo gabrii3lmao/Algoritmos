@@ -5,17 +5,24 @@ using namespace std;
 
 int main()
 {
-    unordered_map<string, int> idades;
+    // declaração: <Tipo da Chave, Tipo do valor>
+    unordered_map<string, int> pontuacoes;
 
-    idades["Ana"] = 25;
-    idades["Carlos"] = 30;
+    // 1. Inserção
+    pontuacoes["Alice"] = 95;
+    pontuacoes["Bob"] = 80;
 
-    if (idades.find("Ana") != idades.end())
-    {
-        cout << "A idade da Ana é: " << idades["Ana"] << endl;
+    // 2. Busca e Atualização - O(1)
+    pontuacoes["Alice"] += 5;
+
+    // 3. Verificando se uma chave existe
+    // .find() retorna .end() se não encontrar a chave
+    if(pontuacoes.find("Carlos") == pontuacoes.end()) {
+        cout << "Carlos não fez a prova" << endl;
     }
 
-    idades.erase("Carlos");
+    // 4. Deleção - O(1)
+    pontuacoes.erase("Bob");
 
     return 0;
 }
